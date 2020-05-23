@@ -18,6 +18,10 @@ class IntroActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        //REDIRECTING TO SIGNIN SCREEN
+        btn_sign_in_intro.setOnClickListener{
+            startActivity(Intent(this, SignInActivity::class.java))
+        }
         //REDIRECTING TO SIGNUP SCREEN
         btn_sign_up_intro.setOnClickListener{
             startActivity(Intent(this, SignUpActivity::class.java))

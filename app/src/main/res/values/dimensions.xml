@@ -31,5 +31,9 @@
     <dimen name="authentication_screen_til_marginTop">20dp</dimen>
     <!-- END SIGN UP ACTIVITY-->
 
+    <!-- LOGIN ACTIVITY-->
+    <dimen name="authentication_screen_marginTop">60dp</dimen>
+    <!-- END LOGIN ACTIVITY-->
+
 
 </resources>
