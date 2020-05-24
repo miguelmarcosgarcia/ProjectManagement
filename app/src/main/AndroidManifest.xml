@@ -10,33 +10,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="activities.BaseActivity"></activity>
         <activity
-            android:name=".SignInActivity"
+            android:name="activities.SignInActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".SignUpActivity"
+            android:name="activities.SignUpActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".IntroActivity"
+            android:name="activities.IntroActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name="activities.SplashActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="activities.MainActivity" />
     </application>
 
 </manifest>

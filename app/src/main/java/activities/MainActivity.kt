@@ -1,7 +1,8 @@
-package com.example.projectmanagement
+package activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.projectmanagement.R
 
 class MainActivity : AppCompatActivity() {
 

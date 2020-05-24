@@ -1,4 +1,4 @@
-package com.example.projectmanagement
+package activities
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import com.example.projectmanagement.R
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {

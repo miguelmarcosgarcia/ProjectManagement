@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "261326280152",
+    "firebase_url": "https://projectmanagementmiguel.firebaseio.com",
+    "project_id": "projectmanagementmiguel",
+    "storage_bucket": "projectmanagementmiguel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261326280152:android:fe574e0d80867216090ead",
+        "android_client_info": {
+          "package_name": "com.miguel.projectmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261326280152-r1gbk65ltddalhq10scqm5es96lf8elf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEcCSekJMOorZeEzzld8ZvvPAyYFEXV5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261326280152-r1gbk65ltddalhq10scqm5es96lf8elf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,9 @@
-package com.example.projectmanagement
+package activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import com.example.projectmanagement.R
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class SignInActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
     }
+
     //SETTING UP THE ACTION BAR FUNCTION
     private fun setupActionBar(){
         setSupportActionBar(toolbar_sign_in_activity)
