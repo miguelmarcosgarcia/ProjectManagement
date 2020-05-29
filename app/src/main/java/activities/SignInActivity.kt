@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.projectmanagement.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_in.*
+import models.User
 
 class SignInActivity : BaseActivity() {
     /**
@@ -105,6 +106,12 @@ class SignInActivity : BaseActivity() {
                 true
             }
         }
-
     }
+    fun signInSuccess(user: User){
+        hideProgressDialog()
+        startActivity(Intent(this, MainActivity::class.java))
+        //AVOID USER TO COME BACK TO THIS SCREEN AGAIN
+        finish()
+    }
+
 }

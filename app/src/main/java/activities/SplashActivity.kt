@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.example.projectmanagement.R
+import firebase.FirestoreClass
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -25,7 +26,13 @@ class SplashActivity : AppCompatActivity() {
 
         //JUMP FROM THE SPASH PAGE TO THE INTRO PAGE in 2500ms
         Handler().postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
+            var currentUserID = FirestoreClass().getCurrentUserId()
+
+            if(currentUserID.isNotEmpty()){
+                startActivity(Intent(this, MainActivity::class.java))
+            }else{
+                startActivity(Intent(this, IntroActivity::class.java))
+            }
             //USER SHOULD NOT BE ABLE TO COME BACK TO THIS ACTIVITY
             finish()
         },2500)
