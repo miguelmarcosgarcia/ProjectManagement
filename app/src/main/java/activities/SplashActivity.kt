@@ -10,6 +10,7 @@ import com.example.projectmanagement.R
 import firebase.FirestoreClass
 import kotlinx.android.synthetic.main.activity_splash.*
 
+
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +27,8 @@ class SplashActivity : AppCompatActivity() {
 
         //JUMP FROM THE SPASH PAGE TO THE INTRO PAGE in 2500ms
         Handler().postDelayed({
-            var currentUserID = FirestoreClass().getCurrentUserId()
+            var currentUserID = FirestoreClass().getCurrentUserID()
+
 
             if(currentUserID.isNotEmpty()){
                 startActivity(Intent(this, MainActivity::class.java))
