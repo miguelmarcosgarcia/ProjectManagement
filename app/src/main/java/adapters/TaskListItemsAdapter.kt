@@ -3,11 +3,13 @@ package adapters
 import activities.TaskListActivity
 import android.content.Context
 import android.content.res.Resources
+import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectmanagement.R
 import kotlinx.android.synthetic.main.item_task.view.*
@@ -45,7 +47,7 @@ open class TaskListItemsAdapter(
         val model = list[position]
         //ONLY SHOW ADD LIST BUTTON IF THERE'S NO LIST
         if(holder is MyViewHolder){
-            if(position.equals(list.size -1 )){
+            if(position == list.size -1){
                 holder.itemView.tv_add_task_list.visibility=View.VISIBLE
                 holder.itemView.ll_task_item.visibility = View.GONE
             }
@@ -78,7 +80,79 @@ open class TaskListItemsAdapter(
                 }
             }
         }
+        holder.itemView.ib_edit_list_name.setOnClickListener{
+            holder.itemView.et_edit_task_list_name.setText(model.title)
+            holder.itemView.ll_title_view.visibility = View.GONE
+            holder.itemView.cv_edit_task_list_name.visibility = View.VISIBLE
+        }
+
+        holder.itemView.ib_close_editable_view.setOnClickListener{
+            holder.itemView.ll_title_view.visibility=View.VISIBLE
+            holder.itemView.cv_edit_task_list_name.visibility = View.GONE
+
+        }
+
+        holder.itemView.ib_done_edit_list_name.setOnClickListener{
+
+            val listName = holder.itemView.et_edit_task_list_name.text.toString()
+
+            if(listName.isNotEmpty()){
+                if(context is TaskListActivity){
+                    context.updateTaskList(position, listName, model)
+                }
+            }else{
+                Toast.makeText(context, "Please enter a List name", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        holder.itemView.ib_delete_list.setOnClickListener{
+            if(context is TaskListActivity){
+                context.deleteTaskList(position)
+            }
+        }
+
+        holder.itemView.tv_add_card.setOnClickListener{
+            holder.itemView.tv_add_card.visibility = View.GONE
+            holder.itemView.cv_add_card.visibility = View.VISIBLE
+        }
+
+        holder.itemView.ib_close_card_name.setOnClickListener{
+            holder.itemView.tv_add_card.visibility = View.VISIBLE
+            holder.itemView.cv_add_card.visibility = View.GONE
+        }
+
+        holder.itemView.ib_done_card_name.setOnClickListener{
+            val cardName = holder.itemView.et_card_name.text.toString()
+
+            if(cardName.isNotEmpty()){
+                if(context is TaskListActivity){
+                    context.addCardToTaskList(position, cardName)
+                }
+            }else{
+                Toast.makeText(context, "Please enter a Card name", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        holder.itemView.rv_card_list.layoutManager = LinearLayoutManager(context)
+        holder.itemView.rv_card_list.setHasFixedSize(true)
+
+        val adapter = CardListItemsAdapter(context, model.cards)
+        holder.itemView.rv_card_list.adapter = adapter
+
+        adapter.setOnClickListener(
+            object : CardListItemsAdapter.OnClickListener{
+                override fun onClick(cardPosition: Int) {
+
+                   if(context is TaskListActivity){
+                       context.cardDetails(position, cardPosition)
+                   }
+                }
+            }
+        )
+
+
     }
+
 
     //GET THE DENSITY OF THE SCREEN AND CONVERT IT INTO AN INT SO THAT WE CAN ADJUST THE WIDTH
     //OF THE APP TO SET THE WIDTH OF THE RECYCLERVIEW
