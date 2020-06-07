@@ -1,11 +1,9 @@
 package activities
 
-import adapters.MemberListItemsAdaptor
+import adapters.MemberListItemsAdapter
 import android.app.Activity
 import android.app.Dialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -13,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projectmanagement.R
 import firebase.FirestoreClass
 import kotlinx.android.synthetic.main.activity_members.*
-import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.dialog_search_member.*
 import models.Board
 import models.User
@@ -46,7 +43,7 @@ class MembersActivity : BaseActivity() {
         rv_members_list.layoutManager = LinearLayoutManager(this)
         rv_members_list.setHasFixedSize(true)
 
-        val adapter = MemberListItemsAdaptor(this, list)
+        val adapter = MemberListItemsAdapter(this, list)
         rv_members_list.adapter = adapter
     }
 

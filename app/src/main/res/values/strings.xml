@@ -38,5 +38,6 @@
     <string name="select_due_date">Select Due Date</string>
     <string name="delete_card">Delete Card</string>
     <string name="str_select_label_color">Select Label Color</string>
+    <string name="str_select_member">Select Member</string>
 
 </resources>
